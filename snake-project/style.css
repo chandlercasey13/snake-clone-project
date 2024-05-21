@@ -1,0 +1,74 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  /* I researched about the position property*/
+  position: fixed;
+
+  background-color: #af8f6f;
+  border:  solid #6f4e37;
+  border-radius: 50%;
+  justify-content: center;
+  text-align: center;
+
+  width: 15vw;
+  height: 3vw;
+
+  font-family: "Danfo", serif;
+  font-size: 45px;
+  color: #fc92f5;
+  /*used this to give fontstyle a blackborder*/
+  text-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.message {
+
+display: flex;
+justify-content: center;
+margin-top: 5vw;
+position: fixed;
+
+font-family: "Danfo", serif;
+font-size: 30px;
+color: #fc92f5;
+text-shadow:  1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+
+}
+
+
+body {
+  /*opensource background image from open game art*/
+  background-image: url(https://opengameart.org/sites/default/files/Dirt%20Texture%202.jpg);
+  background-color: #543310;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  margin: 8vw;
+  margin-bottom: 0;
+  --rowColumnSize: 5em;
+  display: grid;
+  grid-template-rows: var(--rowColumnSize) var(--rowColumnSize) var(
+      --rowColumnSize
+    ) var(--rowColumnSize) var(--rowColumnSize) var(--rowColumnSize) var(
+      --rowColumnSize
+    ) var(--rowColumnSize) var(--rowColumnSize) var(--rowColumnSize);
+  grid-template-columns: var(--rowColumnSize) var(--rowColumnSize) var(
+      --rowColumnSize
+    ) var(--rowColumnSize) var(--rowColumnSize) var(--rowColumnSize) var(
+      --rowColumnSize
+    ) var(--rowColumnSize) var(--rowColumnSize) var(--rowColumnSize);
+}
+
+.sqr {
+  display: flex;
+  background-color: #af8f6f;
+  border: 2px dashed #6f4e37;
+  min-width: 50px;
+  min-height: 50px;
+  font-size: 75px;
+  justify-content: center;
+  align-items: center;
+}
