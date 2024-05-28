@@ -10,14 +10,14 @@ nav {
   justify-content: center;
   text-align: center;
 
-  width: 15vw;
-  height: 3vw;
+  width: 18vw;
+  height: 4vw;
 
   font-family: "Danfo", serif;
-  font-size: 45px;
+  font-size: 55px;
   color: #fc92f5;
   /*used this to give fontstyle a blackborder*/
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 #message {
@@ -26,10 +26,21 @@ nav {
   margin-top: 5vw;
 
   font-family: "Danfo", serif;
-  font-size: 25px;
+  font-size: 35px;
   color: #fc92f5;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
+#submessage {
+  position: fixed;
+
+  margin-top: 8vw;
+
+  font-family: "Danfo", serif;
+  font-size: 20px;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
 
 #Score {
   position: absolute;
@@ -41,7 +52,7 @@ nav {
   font-family: "Danfo", serif;
   font-size: 20px;
   color: #fc92f5;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 body {
@@ -54,7 +65,7 @@ body {
 }
 
 .board {
-  margin: 8vw;
+  margin: 10vw;
   margin-bottom: 0;
   --rowColumnSize: 5em;
   display: grid;
@@ -89,7 +100,7 @@ body {
 .Snake {
   background-color: #fc92f5;
   border: 1px solid black;
-  background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fillustration%2Fpink-worm.html&psig=AOvVaw1SoHF2KdtEKz7M40JFm3Yd&ust=1716937500776000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIDajLb5roYDFQAAAAAdAAAAABAE);
+ 
 }
 .Apple {
   background-color: red;
