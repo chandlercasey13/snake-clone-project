@@ -1,6 +1,7 @@
+// Variables ----------------------------------------------------------------------------------------------
 let gameBoard = []; //maybe 2D
 let snakePlaceholder = "X";
-let snakeSize = 1;
+let snakeSize = 0;
 let snakePosition = [];
 let twoDimarray = [];
 let applePosition = "";
@@ -12,6 +13,9 @@ let gameStart = false;
 let timer = "";
 
 const squareEls = document.querySelectorAll(".sqr");
+const score = document.querySelector("#Score");
+
+//takes keyboard input -------------------------------------------------------------------------------------
 
 const handleControls = (event) => {
   if (
@@ -22,32 +26,41 @@ const handleControls = (event) => {
     gameStart === false
   ) {
     gameStart = true;
-    start();
+    startSnake();
   }
 
   if (event.key === "ArrowUp") {
-    snakeDirection = "up";
-    console.log("up");
+    if (snakeDirection != "down") {
+      snakeDirection = "up";
+      console.log("up");
+    }
   }
   if (event.key === "ArrowDown") {
-    snakeDirection = "down";
-    console.log("down");
+    if (snakeDirection != "up") {
+      snakeDirection = "down";
+      console.log("down");
+    }
   }
   if (event.key === "ArrowRight") {
-    snakeDirection = "right";
-    console.log("right");
+    if (snakeDirection != "left") {
+      snakeDirection = "right";
+      console.log("right");
+    }
   }
   if (event.key === "ArrowLeft") {
-    snakeDirection = "left";
-    console.log("left");
+    if (snakeDirection != "right") {
+      snakeDirection = "left";
+      console.log("left");
+    }
   }
 };
 
-//Event Listeners
+//Event Listeners -----------------------------------------------------------------------------------------------
 window.addEventListener("load", init());
 
 document.addEventListener("keydown", handleControls);
 
+//runs on webpage load
 function init() {
   gameBoard = [
     ["", "", "", "", "", "", "", "", "", ""],
@@ -60,190 +73,232 @@ function init() {
     ["", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", ""],
     ["", "", "", "", "", "", "", "", "", ""],
+    ["", "", "", "", "", "", "", "", "", ""],
   ];
+  gameBoard[5][1] = "X";
+  gameBoard[5][2] = "X";
+  gameBoard[5][7] = "o";
 
-  gameBoard[5][7] = "O";
   snakePosition = [
     [5, 1],
     [5, 2],
   ];
-  snakeSize = 0;
 
+  snakeSize = 0;
+  snakeDirection = "";
   snakeState = "Alive";
   gameStart = false;
   twoDimarray = [];
-  render();
-}
-
-function render() {
   updateBoard();
 }
 
+//the function executed when the first arrow key is pressed -----------------------------------------------
+function startSnake() {
+  console.log("game start");
+  updateMessage();
+  time();
+}
+
+//this is the message displayed above board
 function updateMessage() {
-  const message = document.querySelector(".message");
+  const message = document.querySelector("#message");
   if (snakeState === "Dead") {
     message.textContent = "You dead, son";
   } else {
     message.textContent = "Grab the apple";
   }
 }
-//console.log(snakePosition);
-function updateBoard() {
-  for (let i = 0; i < snakePosition.length; i++) {
-    gameBoard[snakePosition[i][0]][snakePosition[i][1]] = "X";
-  }
 
-  squareEls.forEach((square) => {
-    let coordinates = square.getAttribute("data-coord");
-    let coordinatesArray = coordinates.split(",");
-
-    square.textContent = gameBoard[coordinatesArray[0]][coordinatesArray[1]];
-
-    //converts coordinate array into number data type instead of string
-    if (square.textContent === "X") {
-      let containerArray = [];
-      for (let i = 0; i < coordinatesArray.length; i++) {
-        containerArray.push(parseInt(coordinatesArray[i]));
-      }
-      //pushes container array into a 2-D array
-    twoDimarray.push(containerArray);
-    }
-  });
-
-
-  
-}
-
-function emptyTwodimarray(){
-  return twoDimarray = [];
-}
-
-
-
-function start() {
-  console.log("game start");
-  updateMessage();
-  time();
-}
-
+//this will execute move() on a time basis
 function time() {
-  //this will execute on a time basis
-  timer = setInterval(move, 500);
+  timer = setInterval(move, 150);
 }
 
-function placeRandomapple() {
-  snakeSize += 1;
-  //used MDN for math.random
-  function randomNum(maxNum) {
-    return Math.floor(Math.random() * maxNum);
+//check if head position equals any body position
+const move = () => {
+  if (snakeDirection === "right") {
+    for (let i = 0; i < snakePosition.length; i++) {
+      if (i === snakePosition.length - 1) {
+        snakePosition[i][1] += 1;
+      } else {
+        snakePosition[i] = Array.from(snakePosition[i + 1]);
+      }
+    }
+  }
+  if (snakeDirection === "left") {
+    for (let i = 0; i < snakePosition.length; i++) {
+      if (i === snakePosition.length - 1) {
+        snakePosition[i][1] -= 1;
+      } else {
+        snakePosition[i] = Array.from(snakePosition[i + 1]);
+      }
+    }
+  }
+  if (snakeDirection === "up") {
+    for (let i = 0; i < snakePosition.length; i++) {
+      if (i === snakePosition.length - 1) {
+        snakePosition[i][0] -= 1;
+      } else {
+        snakePosition[i] = Array.from(snakePosition[i + 1]);
+      }
+    }
   }
 
-  gameBoard[randomNum(10)][randomNum(10)] = "O";
-  //snakeTrail();
-  updateBoard();
-}
+  if (snakeDirection === "down") {
+    for (let i = 0; i < snakePosition.length; i++) {
+      if (i === snakePosition.length - 1) {
+        snakePosition[i][0] += 1;
+      } else {
+        snakePosition[i] = Array.from(snakePosition[i + 1]);
+      }
+    }
+  }
 
+  isAppleSpawned();
+  hitWall();
+  hitSelf();
+  updateBoard();
+};
+
+//checks the gameboard for an 'O', if false, executes place random apple
 function isAppleSpawned() {
   let appleOnboard = false;
   for (let i = 0; i < gameBoard.length; i++) {
     for (let j = 0; j < gameBoard[i].length; j++) {
-      if (gameBoard[i][j] == "O") {
+      if (gameBoard[i][j] == "o") {
         appleOnboard = true;
       }
     }
   }
   if (appleOnboard == false) {
     placeRandomapple();
+    growSnake();
   }
   return appleOnboard;
 }
-// I need a way to track if the X's on the board are not equal to the coords in snake position
-// firstly, make an array that maps outs the indexes of the X's
 
-console.log(snakePosition)
-const move = () => {
-  if (snakeDirection === "right") {
-    let newElement = "";
-    for (let i = 0; i < snakePosition.length; i++) {
-      snakePosition[i][1] += 1;
-      newElement = snakePosition[i];
-    }
+//places an apple on a random index on board
+function placeRandomapple() {
+  snakeSize += 1;
+  changeScore();
 
-    snakePosition.pop();
-    snakePosition.unshift(newElement);
-
-    //console.log(snakePosition);
-    //console.log(twoDimarray);
-  }
-  if (snakeDirection === "left") {
-    let newElement = "";
-    for (let i = 0; i < snakePosition.length; i++) {
-      snakePosition[i][1] -= 1;
-      newElement = snakePosition[i];
-    }
-    snakePosition.pop();
-    snakePosition.unshift(newElement);
-  }
-  if (snakeDirection === "up") {
-    let newElement = "";
-    
-    for (let i = 0; i < snakePosition.length; i++) {
-      let trackingArray= [];
-      
-      trackingArray.push(snakePosition[1])
-      newElement = trackingArray[0];
-      
-      
-      console.log(trackingArray)
-    }
-    snakePosition.shift();
-    snakePosition.unshift(newElement);
-    snakePosition[1][0] -= 1;
-    console.log(snakePosition)
-    
-    
+  //used MDN for math.random
+  function randomNum(maxNum) {
+    return Math.floor(Math.random() * maxNum);
   }
 
-  if (snakeDirection === "down") {
-    for (let i = 0; i < snakePosition.length; i++) {
-      snakePosition[i][0] += 1;
-    }
-  }
-
-  hitWall(snakePosition);
-  isAppleSpawned();
-  emptyTwodimarray();
-  updateBoard();
-  
-};
-//make an array of indexes of the snakes location
-// the array for each move will pop and unshift indexes based on the snakeSize
-
-function hitWall(snakeIndex) {
-  for (let i = 0; i < snakePosition.length; i++) {
-    if (
-      snakeIndex[0][0] >= 0 &&
-      snakeIndex[0][0] <= 9 &&
-      snakeIndex[0][1] >= 0 &&
-      snakeIndex[0][1] <= 9
-    ) {
-      snakeState = "Alive";
-    } else {
-      snakeState = "Dead";
-
-      console.log(snakeState);
-    }
-  }
-
-  isSnakeDead();
+  gameBoard[randomNum(10)][randomNum(10)] = "o";
 }
 
+function growSnake() {
+  if (snakeDirection === "right") {
+    snakePosition.unshift([snakePosition[0][0], snakePosition[0][1] - 1]);
+  }
+  if (snakeDirection === "left") {
+    snakePosition.unshift([snakePosition[0][0], snakePosition[0][1] + 1]);
+  }
+  if (snakeDirection === "up") {
+    snakePosition.unshift([snakePosition[0][0] + 1, snakePosition[0][1]]);
+  }
+  if (snakeDirection === "down") {
+    snakePosition.unshift([snakePosition[0][0] - 1, snakePosition[0][1]]);
+  }
+}
+
+function changeScore() {
+  score.textContent = `Score: ${snakeSize}`;
+}
+
+//checks if snakePosition has exceeded the bounds of the gameboard
+function hitWall() {
+  if (
+    snakePosition[snakePosition.length - 1][0] < 0 ||
+    snakePosition[snakePosition.length - 1][0] > 10 ||
+    snakePosition[snakePosition.length - 1][1] < 0 ||
+    snakePosition[snakePosition.length - 1][1] > 10
+  ) {
+    snakeState = "Dead";
+    isSnakeDead();
+  }
+}
+
+function hitSelf() {
+  let counter = 0;
+
+  //using the toString() method to allow for the snakePosition indicies to be equal to each other
+
+  for (let i = 0; i < snakePosition.length; i++) {
+    let snakePositionstring = snakePosition[i].toString();
+
+    //this code represents the snakes head: snakePosition[snakePosition[i].length-1])
+
+    //loop that determines if the snake head specifically hits it's own body
+    if (snakePosition[i] === snakePosition[snakePosition[i].length - 1]) {
+      for (let j = i + 1; j < snakePosition.length; j++) {
+        //if this counter is ever greater than zero, a collision has happened
+        if (snakePositionstring === snakePosition[j].toString()) {
+          counter += 1;
+
+          if (counter > 0) {
+            snakeState = "Dead";
+
+            isSnakeDead();
+          }
+        }
+      }
+    }
+  }
+}
+
+//checks if snake is dead, if true, clears gameBoard
 function isSnakeDead() {
   if (snakeState === "Dead") {
     clearInterval(timer);
     updateMessage();
+
+    console.log(snakeState);
     init();
+    changeScore();
   } else {
     return;
   }
+}
+
+function updateBoard() {
+  //emptys gameboard
+  for (let i = 0; i < gameBoard.length; i++) {
+    for (let j = 0; j < gameBoard[i].length; j++) {
+      if (gameBoard[i][j] != "o") {
+        gameBoard[i][j] = "";
+      }
+    }
+  }
+  //places 'X' at snake position
+  for (let i = 0; i < snakePosition.length; i++) {
+    gameBoard[snakePosition[i][0]][snakePosition[i][1]] = "X";
+  }
+  //updates the elements at snakePosition
+  squareEls.forEach((square) => {
+    let coordinates = square.getAttribute("data-coord");
+    let coordinatesArray = coordinates.split(",");
+    square.textContent = gameBoard[coordinatesArray[0]][coordinatesArray[1]];
+    //
+    if (square.textContent === "") {
+      square.classList.remove("Snake", "Apple", "Head");
+    }
+    if (square.textContent === "X") {
+      for (let i = 0; i < snakePosition.length; i++) {
+        if (snakePosition[i] === snakePosition[snakePosition[i].length - 1]) {
+          square.classList.add("Head");
+        }
+      }
+      square.classList.add("Snake");
+      square.classList.replace("Apple", "Snake");
+      square.style.color = "rgba(245, 40, 145, 0)";
+    }
+    if (square.textContent === "o") {
+      square.classList.add("Apple");
+      square.style.color = "rgba(245, 40, 145, 0)";
+    }
+  });
 }
