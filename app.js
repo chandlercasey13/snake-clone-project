@@ -5,13 +5,12 @@ let snakeSize = 0;
 let snakePosition = [];
 let twoDimarray = [];
 let applePosition = "";
-
 let snakeDirection = "right";
 let snakeState = "Alive";
-
 let gameStart = false;
 let timer = "";
 
+const message = document.querySelector("#message");
 const squareEls = document.querySelectorAll(".sqr");
 const score = document.querySelector("#Score");
 
@@ -32,25 +31,25 @@ const handleControls = (event) => {
   if (event.key === "ArrowUp") {
     if (snakeDirection != "down") {
       snakeDirection = "up";
-      console.log("up");
+      
     }
   }
   if (event.key === "ArrowDown") {
     if (snakeDirection != "up") {
       snakeDirection = "down";
-      console.log("down");
+      
     }
   }
   if (event.key === "ArrowRight") {
     if (snakeDirection != "left") {
       snakeDirection = "right";
-      console.log("right");
+      
     }
   }
   if (event.key === "ArrowLeft") {
     if (snakeDirection != "right") {
       snakeDirection = "left";
-      console.log("left");
+      
     }
   }
 };
@@ -88,22 +87,23 @@ function init() {
   snakeDirection = "";
   snakeState = "Alive";
   gameStart = false;
-  twoDimarray = [];
+  
   updateBoard();
 }
 
 //the function executed when the first arrow key is pressed -----------------------------------------------
 function startSnake() {
-  console.log("game start");
+  
   updateMessage();
   time();
 }
 
 //this is the message displayed above board
 function updateMessage() {
-  const message = document.querySelector("#message");
+  
   if (snakeState === "Dead") {
-    message.textContent = "You dead, son";
+    message.textContent = "You died, son";
+    setTimeout(() => {if (gameStart===false) {message.textContent="Press an arrow key to start"}}, 1000)
   } else {
     message.textContent = "Grab the apple";
   }
@@ -228,14 +228,17 @@ function hitSelf() {
   //using the toString() method to allow for the snakePosition indicies to be equal to each other
 
   for (let i = 0; i < snakePosition.length; i++) {
-    let snakePositionstring = snakePosition[i].toString();
+    
 
     //this code represents the snakes head: snakePosition[snakePosition[i].length-1])
 
     //loop that determines if the snake head specifically hits it's own body
     if (snakePosition[i] === snakePosition[snakePosition[i].length - 1]) {
+      
+      
       for (let j = i + 1; j < snakePosition.length; j++) {
         //if this counter is ever greater than zero, a collision has happened
+        let snakePositionstring = snakePosition[i].toString();
         if (snakePositionstring === snakePosition[j].toString()) {
           counter += 1;
 
@@ -256,7 +259,7 @@ function isSnakeDead() {
     clearInterval(timer);
     updateMessage();
 
-    console.log(snakeState);
+    
     init();
     changeScore();
   } else {
@@ -302,3 +305,4 @@ function updateBoard() {
     }
   });
 }
+
