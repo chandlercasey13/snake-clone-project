@@ -147,7 +147,14 @@ nav {
 .sqr {
   
   background-color: #af8f6f;
-  border: 1px dashed #6f4e37;
+
+  
+  
+    border: 1px dashed #6f4e37;
+    
+   
+
+  
   
  
 }
@@ -186,6 +193,13 @@ nav {
     width: 90%;
     height: 90%;
       
+}
+.sqr {
+  
+  
+  border: 1px solid #6f4e37;
+  
+ 
 }
 
 
@@ -287,13 +301,15 @@ section #title-box {
     height: 60%;
       
 }
+
 .sqr {
   
-  background-color: #af8f6f;
+  
   border: 1px dashed #6f4e37;
   
  
 }
+
 
 nav {
   display: flex;
