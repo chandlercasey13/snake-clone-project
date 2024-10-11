@@ -14,9 +14,73 @@ const message = document.querySelector("#message");
 const squareEls = document.querySelectorAll(".sqr");
 const score = document.querySelector("#Score");
 
+const arrowUp = document.getElementById('arrow-up');
+const arrowDown = document.getElementById('arrow-down');
+const arrowLeft = document.getElementById('arrow-left');
+const arrowRight = document.getElementById('arrow-right');
+
+
+
 //takes keyboard input -------------------------------------------------------------------------------------
 
 const handleControls = (event) => {
+  function isMobileDevice() {
+  
+    return (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) &&
+      window.innerWidth <= 485
+    );
+  }
+
+  console.log(event)
+  
+  if (isMobileDevice()) {
+    
+    
+    if (
+      (event == "ArrowUp" ||
+        event === "ArrowDown" ||
+        event === "ArrowRight" ||
+        event === "ArrowLeft") &&
+      gameStart === false
+    ) {
+      console.log('true')
+      gameStart = true;
+      startSnake();
+    }
+    if (event === "ArrowUp") {
+      if (snakeDirection != "down") {
+        snakeDirection = "up";
+        
+      }
+    }
+    if (event === "ArrowDown") {
+      if (snakeDirection != "up") {
+        snakeDirection = "down";
+        
+      }
+    }
+    if (event === "ArrowRight") {
+      if (snakeDirection != "left") {
+        snakeDirection = "right";
+        
+      }
+    }
+    if (event === "ArrowLeft") {
+      if (snakeDirection != "right") {
+        snakeDirection = "left";
+        
+      }
+    }
+
+
+
+  }
+  
+
+
+else {
+
   if (
     (event.key === "ArrowUp" ||
       event.key === "ArrowDown" ||
@@ -52,13 +116,29 @@ const handleControls = (event) => {
       
     }
   }
+}
 };
 
 //Event Listeners -----------------------------------------------------------------------------------------------
 window.addEventListener("load", init());
 
 document.addEventListener("keydown", handleControls);
+arrowUp.addEventListener('click', () => handleControls("ArrowUp"))
 
+arrowDown.addEventListener('click', () => {
+  handleControls("ArrowDown")
+  // Your logic for "down" movement
+});
+
+arrowLeft.addEventListener('click', () => {
+  handleControls("ArrowLeft")
+  // Your logic for "left" movement
+});
+
+arrowRight.addEventListener('click', () => {
+  handleControls("ArrowRight")
+  // Your logic for "right" movement
+});
 //runs on webpage load
 function init() {
   gameBoard = [
