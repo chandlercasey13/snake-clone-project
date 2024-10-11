@@ -13,14 +13,29 @@
       rel="stylesheet"
     />
   </head>
-  <nav>WORM</nav>
+  
 
   <body>
-    <div id="message">Press an arrow key to start</div>
-    <div id="submessage">(Use the arrow keys to control the direction of the worm)</div>
 
-    <div id="Score">Score:</div>
 
+    <header>
+    <section class = "title-section" >
+     <div id = "title-box">
+      <div id ="title">WORM</div>
+    </div>
+    </section>
+
+    <nav> 
+      
+      <div id="message">Press an arrow key to start</div>
+      <div id="submessage">(Use the arrow keys to control the direction of the worm)</div>
+  
+      <div id="Score">Score:</div>
+    </nav>
+
+  </header>
+  
+<div id="board-container">
     <section class="board">
       <div class="sqr" data-coord="0,0"></div>
       <div class="sqr" data-coord="0,1"></div>
@@ -123,5 +138,6 @@
       <div class="sqr" data-coord="9,8"></div>
       <div class="sqr" data-coord="9,9"></div>
     </section>
+  </div>
   </body>
 </html>

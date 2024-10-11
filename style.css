@@ -1,0 +1,166 @@
+
+
+
+
+body {
+  /*opensource background image from open game art*/
+  background-image: url(https://opengameart.org/sites/default/files/Dirt%20Texture%202.jpg);
+  background-color: #543310;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  height: 100vh;
+  margin: 0;
+  
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ 
+  width: 100%;
+  height: 15vh;
+  
+}
+.title-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7.5vh;
+  width: 90%;
+  
+  
+  font-family: "Danfo", serif;
+  
+
+}
+
+
+section #title-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20%;
+  height: 50%;
+  padding: 5px;
+  border: solid #6f4e37;
+  border-radius: 50%;
+  background-color: #af8f6f;
+
+
+}
+#title {
+  font-family: "Danfo", serif;
+  font-size: 30px;
+  margin:0;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  
+}
+
+
+
+nav {
+  display: flex;
+  position: relative;
+  flex-direction:column;
+  /* I researched about the position property*/
+  justify-content: center;
+  text-align: center;
+
+  
+  height: 7.5vh;
+  width: 55%;
+
+  font-family: "Danfo", serif;
+  font-size: 55px;
+  color: #fc92f5;
+  /*used this to give fontstyle a blackborder*/
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#message {
+ font-family: "Danfo", serif;
+  font-size: 30px;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+#submessage {
+  font-family: "Danfo", serif;
+  font-size: 20px;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+
+#Score {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+ 
+  width: 10vw;
+
+  font-family: "Danfo", serif;
+  font-size: 20px;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+
+
+
+#board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+  
+ 
+
+}
+.board {
+  width: 50%;
+  height: 97%;
+  display: flex;
+  flex-wrap: wrap;
+
+   
+  display: grid;
+  
+  grid-template-rows:repeat(10, 1fr);
+  grid-template-columns:repeat(10, 1fr);
+    
+
+  }
+
+
+.sqr {
+  
+  background-color: #af8f6f;
+  border: 1.5px dashed #6f4e37;
+  
+ 
+}
+
+.Head {
+  background-color: black;
+}
+.Snake {
+  background-color: #fc92f5;
+  border: 1px solid black;
+ 
+}
+.Apple {
+  background-color: red;
+  border: 2px solid black;
+}
