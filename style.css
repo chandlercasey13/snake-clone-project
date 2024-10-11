@@ -12,7 +12,7 @@ body {
   align-items: center;
   flex-direction: column;
   
-  height: 100vh;
+  height: 100svh;
   margin: 0;
   
 }
@@ -170,6 +170,18 @@ nav {
 
 
 @media (max-width: 480px) {
+
+  #board-container {
+    
+    justify-content: start;
+    
+    
+   
+  
+  }
+
+
+
   .board {
     width: 90%;
     height: 90%;
@@ -178,6 +190,9 @@ nav {
 
 
 nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
  
   
   height: 7.5vh;
@@ -190,16 +205,19 @@ nav {
 }
 
 #message {
-  font-family: "Danfo", serif;
+ 
    font-size: 20px;
-   color: #fc92f5;
-   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+   width: 90%;
+  
  }
  #submessage {
-   font-family: "Danfo", serif;
-   font-size: 10px;
-   color: #fc92f5;
-   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  
+   font-size: 9px;
+  
  }
 
 
@@ -211,26 +229,282 @@ nav {
  
   width: 10vw;
 
-  font-family: "Danfo", serif;
   font-size: 10px;
-  color: #fc92f5;
-  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+
+ 
+}
+section #title-box {
+  
+  width: 30%;
+  height: 50%;
+ 
+  
+  border-radius: 50%;
+ 
+
+
+}
+#title {
+
+  font-size: 25px;
+  
+  
+  
 }
 
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
  
+  #board-container {
+    
+    justify-content: start;
+    
+    width:500px;
+   
+  
+  }
+
+
+
+  .board {
+    width: 90%;
+    height: 90%;
+      
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+  height: 7.5vh;
+  width: 85%;
+
+  
+  font-size: 55px;
+  
+ 
+}
+
+#message {
+ 
+   font-size: 20px;
+   width: 90%;
+  
+ }
+ #submessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  
+   font-size: 9px;
+  
+ }
+
+
+ #Score {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+ 
+  width: 10vw;
+
+  font-size: 10px;
+
+ 
+}
+section #title-box {
+  
+  width: 30%;
+  height: 50%;
+ 
+  
+  border-radius: 50%;
+ 
+
+
+}
+#title {
+
+  font-size: 25px;
+  
+  
+  
+}
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
  
+  #board-container {
+    
+    justify-content: start;
+    width: 500px;
+    
+   
+  
+  }
+
+
+
+  .board {
+    width: 90%;
+    height: 90%;
+      
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+  height: 7.5vh;
+  width: 85%;
+
+  
+  font-size: 55px;
+  
+ 
+}
+
+#message {
+ 
+   font-size: 20px;
+   width: 90%;
+  
+ }
+ #submessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  
+   font-size: 9px;
+  
+ }
+
+
+ #Score {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+ 
+  width: 10vw;
+
+  font-size: 10px;
+
+ 
+}
+section #title-box {
+  
+  width: 30%;
+  height: 50%;
+ 
+  
+  border-radius: 50%;
+ 
+
+
+}
+#title {
+
+  font-size: 25px;
+  
+  
+  
+}
 }
 
 @media (min-width: 1025px) and (max-width: 1200px) {
   
+  #board-container {
+    max-width: 600px;
+    justify-content: start;
+    
+    
+    
+   
+  
+  }
+
+
+
+  .board {
+    width: 90%;
+    height: 90%;
+      
 }
 
-@media (min-width: 1201px) {
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  
+  height: 7.5vh;
+  width: 85%;
+
+  
+  font-size: 55px;
+  
  
 }
+
+#message {
+ 
+   font-size: 20px;
+   width: 90%;
+  
+ }
+ #submessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  
+   font-size: 9px;
+  
+ }
+
+
+ #Score {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+ 
+  width: 10vw;
+
+  font-size: 10px;
+
+ 
+}
+section #title-box {
+  
+  width: 30%;
+  height: 50%;
+ 
+  
+  border-radius: 50%;
+ 
+
+
+}
+#title {
+
+  font-size: 25px;
+  
+  
+  
+}
+}
+
+
