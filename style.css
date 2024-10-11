@@ -287,7 +287,13 @@ section #title-box {
     height: 60%;
       
 }
-
+.sqr {
+  
+  background-color: #af8f6f;
+  border: 1px dashed #6f4e37;
+  
+ 
+}
 
 nav {
   display: flex;
