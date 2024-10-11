@@ -147,7 +147,7 @@ nav {
 .sqr {
   
   background-color: #af8f6f;
-  border: 1.5px dashed #6f4e37;
+  border: 1px dashed #6f4e37;
   
  
 }
@@ -616,3 +616,34 @@ section #title-box {
 }
 
 
+@media (min-width: 1200px)  {
+  #message {
+ 
+    font-size: 30px;
+   
+   
+  }
+  #submessage {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ 
+   
+    font-size: 12px;
+   
+  }
+ 
+ 
+  #Score {
+   position: absolute;
+   right: 0px;
+   bottom: 0px;
+ 
+  
+   width: 10vw;
+ 
+   font-size: 10px;
+ 
+  
+ }
+}
