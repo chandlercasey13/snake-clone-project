@@ -1,47 +1,26 @@
-![worm game](image.png)
+![image](https://github.com/chandlercasey13/snake-clone-project/assets/169074667/de0f054f-6137-4376-929a-b278a78cd351)
+)
 # Worm Game written in Javascript
 
 ## A snake clone that uses a worm in the dirt instead of a snake. I chose to make this game because I used to play it in school, and wanted to challenge my coding abilities.
 
 **Getting Started:** 
-
-
-
-* **const**: const should be used whenever a function expression is assigned to a variable.
-* **The function name**: The name you choose for the function.
-* **Parameters**: Optional comma separated parameters. This is the data passed into the function. If there are no parameters, the () is still required.
-* **The arrow syntax**: Indicates that this will be a function.
-* **The body**: The statements that make up the function itself. Surrounded by curly braces.
-
-Example:
+Visit this link!
 ```
-const greet = (name) => {
-  console.log("Hello, " + name + "!");
-}
+https://chandlercasey13.github.io/snake-clone-project/
 ```
 
-. 
 
-2. Calling a function
+Use the arrows keys to control the worm and grow by eating the apples! See how high you can go!
 
-To execute the function, you *call* or *invoke* it by using its name followed by parentheses.
 
-Example:
-```
-greet('Alice'); // Outputs: Hello, Alice!
-```
-3. Return values
 
-Functions can process data input and output a value using the return keyword.
+Here's the link to the dirt texture I used from OpenGameArt! 
+[Dirt Texture.](https://opengameart.org/sites/default/files/Dirt%20Texture%202.jpg)
 
-Example: 
-```
-const addNums = (numA, numB) => {
-  return numA + numB
-}
+Technologies: Written using JavaScript, CSS and HTML!
 
-const total = addNums(2, 4);
-
-console.log(total) // Expected value: 6
-```
-For more information on functions and how they are used in JS, check out the MDN docs. 
+### Next Steps
+* Better Tracking when snake hit itself
+* Improved styling for responsive design
+* More detailed graphic of worm
