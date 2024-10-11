@@ -1,6 +1,7 @@
 
 
 
+
 body {
   /*opensource background image from open game art*/
   background-image: url(https://opengameart.org/sites/default/files/Dirt%20Texture%202.jpg);
@@ -79,7 +80,7 @@ nav {
   width: 55%;
 
   font-family: "Danfo", serif;
-  font-size: 45px;
+  font-size: 55px;
   color: #fc92f5;
   /*used this to give fontstyle a blackborder*/
   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
@@ -162,4 +163,74 @@ nav {
 .Apple {
   background-color: red;
   border: 2px solid black;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+  .board {
+    width: 90%;
+    height: 90%;
+      
+}
+
+
+nav {
+ 
+  
+  height: 7.5vh;
+  width: 85%;
+
+  
+  font-size: 55px;
+  
+ 
+}
+
+#message {
+  font-family: "Danfo", serif;
+   font-size: 20px;
+   color: #fc92f5;
+   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+ }
+ #submessage {
+   font-family: "Danfo", serif;
+   font-size: 10px;
+   color: #fc92f5;
+   text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+ }
+
+
+ #Score {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+
+ 
+  width: 10vw;
+
+  font-family: "Danfo", serif;
+  font-size: 10px;
+  color: #fc92f5;
+  text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+ 
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  
+}
+
+@media (min-width: 1201px) {
+ 
 }
