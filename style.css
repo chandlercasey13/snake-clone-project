@@ -122,14 +122,14 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 90vh;
+  height: 85vh;
   width: 100%;
   
  
 
 }
 .board {
-  width: 50%;
+  width: 40%;
   height: 97%;
   display: flex;
   flex-wrap: wrap;
@@ -344,6 +344,7 @@ section #title-box {
     
     justify-content: start;
     width: 500px;
+    max-height: 1000px;
     
    
   
@@ -426,6 +427,7 @@ section #title-box {
   
   #board-container {
     max-width: 600px;
+    max-height: 1000px;
     justify-content: start;
     
     
@@ -489,7 +491,7 @@ nav {
 }
 section #title-box {
   
-  width: 30%;
+  width: 20%;
   height: 50%;
  
   
