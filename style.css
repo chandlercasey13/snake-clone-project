@@ -176,7 +176,7 @@ nav {
 
 .virtual-arrow-keys {
   position: fixed;
-  bottom: 10px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
