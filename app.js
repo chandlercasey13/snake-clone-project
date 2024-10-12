@@ -32,7 +32,7 @@ const handleControls = (event) => {
     );
   }
 
-  console.log(event)
+  
   
   if (isMobileDevice()) {
     

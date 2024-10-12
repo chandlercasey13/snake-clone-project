@@ -31,7 +31,7 @@
     <nav> 
       
       <div id="message">Press an arrow key to start</div>
-      <div id="submessage">(Use the arrow keys to control the direction of the worm)</div>
+     
   
       <div id="Score">Score:</div>
     </nav>
@@ -141,8 +141,12 @@
       <div class="sqr" data-coord="9,8"></div>
       <div class="sqr" data-coord="9,9"></div>
     </section>
+     
 
-    <div class="virtual-arrow-keys">
+    
+
+
+    <div id="virtual-arrow-keys">
       <div class="arrow-row">
         <button class="arrow-button" id="arrow-up"><i class='bx bx-up-arrow-alt' style='color:#ffffff'  ></i></button>
       </div>
@@ -155,6 +159,20 @@
         
       </div>
     </div>
+
+    <script>
+      function isMobile() {
+  
+  return (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) &&
+    window.innerWidth <= 485
+  );
+}
+    
+      if (isMobile()) {
+       document.getElementById('virtual-arrow-keys').style.opacity= '1'
+      }
+    </script>
 
 
 

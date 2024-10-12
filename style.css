@@ -174,7 +174,8 @@ nav {
 }
 
 
-.virtual-arrow-keys {
+#virtual-arrow-keys {
+ opacity: 0;
   position: fixed;
   bottom: 0px;
   left: 50%;
