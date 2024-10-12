@@ -14,6 +14,7 @@ body {
   
   height: 100svh;
   margin: 0;
+  touch-action: none;
   
 }
 
@@ -175,7 +176,7 @@ nav {
 
 .virtual-arrow-keys {
   position: fixed;
-  bottom: 40px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -191,8 +192,8 @@ nav {
 }
 
 .arrow-button {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   font-size: 24px;
   border-radius: 10px;
   border: 1px solid #333;
@@ -280,7 +281,7 @@ nav {
   align-items: center;
   width: 80%;
   
-   font-size: 9px;
+   font-size: 8px;
   
  }
 
